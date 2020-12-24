@@ -40,16 +40,21 @@ int main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
+  printf("Running analysis on the set:\n");
+  print_array(test, SIZE);
+  printf("------------- RESULTS -------------\n");
+  
   print_statistics(test, SIZE);
+  
+  printf("------------- POST ANALYSIS -------------\n");
+  printf("The sorted data set is:\n");
+  print_array(test, SIZE);
+  
   return 0;
 }
 
 /* Add other Implementation File Code Here */
 void print_statistics(unsigned char data[], unsigned int length) {
-  printf("Running analysis on the set:\n");
-  print_array(data, length);
-  printf("------------- RESULTS -------------\n");
-
   sort_array(data, length);
   unsigned char median = find_median(data, length);
   unsigned char mean = find_mean(data, length);
@@ -60,10 +65,6 @@ void print_statistics(unsigned char data[], unsigned int length) {
   printf("Mean: %i\n", mean);
   printf("Maximum: %i\n", maximum);
   printf("Minimum: %i\n", minimum);
-  
-  printf("------------- POST ANALYSIS -------------\n");
-  printf("The sorted data set is:\n");
-  print_array(data, length);
 };
 
 void print_array(unsigned char data[], unsigned int length) {
