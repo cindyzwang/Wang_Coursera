@@ -115,7 +115,7 @@ unsigned char find_minimum(unsigned char data[], unsigned int length);
  *
  * This function takes as input a reference to an array of unsigned characters
  * and the number of elements contained in the array. 
- * This will sort the elements in descending order.
+ * This will sort the elements in descending order by implementing bubble sort.
  *
  * @param data The reference to an array of unsigned characters to analyze
  * @param length The number of elements in the parameter "data"

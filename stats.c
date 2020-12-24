@@ -41,14 +41,40 @@ int main() {
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
   print_statistics(test, SIZE);
+  sort_array(test, SIZE);
+  print_array(test, SIZE);
   return 0;
 }
 
 /* Add other Implementation File Code Here */
 void print_statistics(unsigned char data[], unsigned int length) {};
-void print_array(unsigned char data[], unsigned int length) {};
-unsigned char find_median(unsigned char data[], unsigned int length) {};
-unsigned char find_mean(unsigned char data[], unsigned int length) {};
-unsigned char find_maximum(unsigned char data[], unsigned int length) {};
-unsigned char find_minimum(unsigned char data[], unsigned int length) {};
-void sort_array(unsigned char data[], unsigned int length) {};
+
+void print_array(unsigned char data[], unsigned int length) {
+  for (int i = 0; i < length - 1; i++) {
+    printf("%i, ", data[i]);
+  }
+  printf("%i\n", data[length - 1]);
+};
+
+unsigned char find_median(unsigned char data[], unsigned int length) { return 0; };
+unsigned char find_mean(unsigned char data[], unsigned int length) { return 0; };
+unsigned char find_maximum(unsigned char data[], unsigned int length) { return 0; };
+unsigned char find_minimum(unsigned char data[], unsigned int length) { return 0; };
+
+void sort_array(unsigned char data[], unsigned int length) {
+  // An implementation of bubble sort
+  for (int i = 0; i < length; i++) {
+    unsigned char swapped = 0;
+    for (int j = 1; j < length - i; j++) {
+      if (data[j - 1] < data[j]) {
+        // swap
+        unsigned char temp = data[j];
+        data[j] = data[j - 1];
+        data[j - 1] = temp;
+        if (!swapped) swapped = 1;
+      }
+    }
+    // If no swap occured during this iteration, there the array is sorted
+    if (!swapped) break;
+  }
+};
