@@ -77,7 +77,7 @@ unsigned char find_median(unsigned char sorted_data[], unsigned int length) {
 };
 
 unsigned char find_mean(unsigned char data[], unsigned int length) {
-  unsigned char sum = 0;
+  int sum = 0;
   for (int i = 0; i < length; i++) {
     sum += data[i];
   }
