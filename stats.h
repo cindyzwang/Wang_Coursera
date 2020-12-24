@@ -86,7 +86,7 @@ unsigned char find_mean(unsigned char data[], unsigned int length);
  * @brief Evaluates the maximum for an array of unsigned characters
  *
  * This function takes as input a reference to an array of unsigned characters
- * and the number of elements contained in the array. 
+ * sorted in descending order and the number of elements contained in the array.
  * This will evaluate the maximum.
  *
  * @param data The reference to an array of unsigned characters to analyze
@@ -94,13 +94,13 @@ unsigned char find_mean(unsigned char data[], unsigned int length);
  *
  * @return The maximum of the parameter "data"
  */
-unsigned char find_maximum(unsigned char data[], unsigned int length);
+unsigned char find_maximum(unsigned char sorted_data[], unsigned int length);
 
 /**
  * @brief Evaluates the minimum for an array of unsigned characters
  *
  * This function takes as input a reference to an array of unsigned characters
- * and the number of elements contained in the array. 
+ * sorted in descending order and the number of elements contained in the array.
  * This will evaluate the minimum.
  *
  * @param data The reference to an array of unsigned characters to analyze
@@ -108,7 +108,7 @@ unsigned char find_maximum(unsigned char data[], unsigned int length);
  *
  * @return The minimum of the parameter "data"
  */
-unsigned char find_minimum(unsigned char data[], unsigned int length);
+unsigned char find_minimum(unsigned char sorted_data[], unsigned int length);
 
 /**
  * @brief Sorts an array of unsigned characters in descending order

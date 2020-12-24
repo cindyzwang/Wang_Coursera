@@ -49,8 +49,13 @@ void print_statistics(unsigned char data[], unsigned int length) {
   sort_array(data, length);
   unsigned char median = find_median(data, length);
   unsigned char mean = find_mean(data, length);
+  unsigned char maximum = find_maximum(data, length);
+  unsigned char minimum = find_minimum(data, length);
   printf("Median: %i\n", median);
   printf("Mean: %i\n", mean);
+  printf("Maximum: %i\n", maximum);
+  printf("Minimum: %i\n", minimum);
+  print_array(data, length);
 };
 
 void print_array(unsigned char data[], unsigned int length) {
@@ -61,10 +66,10 @@ void print_array(unsigned char data[], unsigned int length) {
 };
 
 unsigned char find_median(unsigned char sorted_data[], unsigned int length) { 
-  // assumes that the data is already sorted
+  // Assumes that the data is already sorted
   unsigned int middle_index = length / 2;
   if (length % 2) {
-    // the number of elements is odd, so the median is the average of the middle 2 elements
+    // The number of elements is odd, so the median is the average of the middle 2 elements
     return (unsigned char) (sorted_data[middle_index] + sorted_data[middle_index + 1]) / 2;
   }
 
@@ -80,8 +85,15 @@ unsigned char find_mean(unsigned char data[], unsigned int length) {
   return sum / length;
 };
 
-unsigned char find_maximum(unsigned char data[], unsigned int length) { return 0; };
-unsigned char find_minimum(unsigned char data[], unsigned int length) { return 0; };
+unsigned char find_maximum(unsigned char sorted_data[], unsigned int length) {
+  // Assumes the data is already sorted
+  return sorted_data[0];
+};
+
+unsigned char find_minimum(unsigned char sorted_data[], unsigned int length) {
+  // Assumes the data is already sorted
+  return sorted_data[length - 1];
+};
 
 void sort_array(unsigned char data[], unsigned int length) {
   // An implementation of bubble sort
