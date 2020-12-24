@@ -9,13 +9,16 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stats.c
+ * @brief This file contains a data set and functions to analyze it.
+ * 
+ * This file contains an array of unsigned characters to use as a data set.
+ * An analysis is run on this data set to find the mean, median, maximum, and minimum.
+ * This information as well as the original data set and the processed data set are
+ * then printed to the console.
  *
- * <Add Extended Description Here>
- *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Cindy Wang
+ * @date Dec 23, 2020
  *
  */
 
@@ -27,7 +30,7 @@
 /* Size of the Data Set */
 #define SIZE (40)
 
-void main() {
+int main() {
 
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
                               114, 88,   45,  76, 123,  87,  25,  23,
@@ -37,7 +40,15 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
-
+  print_statistics(test, SIZE);
+  return 0;
 }
 
 /* Add other Implementation File Code Here */
+void print_statistics(unsigned char data[], unsigned int length) {};
+void print_array(unsigned char data[], unsigned int length) {};
+unsigned char find_median(unsigned char data[], unsigned int length) {};
+unsigned char find_mean(unsigned char data[], unsigned int length) {};
+unsigned char find_maximum(unsigned char data[], unsigned int length) {};
+unsigned char find_minimum(unsigned char data[], unsigned int length) {};
+void sort_array(unsigned char data[], unsigned int length) {};
