@@ -46,16 +46,19 @@ int main() {
 
 /* Add other Implementation File Code Here */
 void print_statistics(unsigned char data[], unsigned int length) {
+  printf("Running analysis on the set:\n");
+  print_array(data, length);
+
   sort_array(data, length);
   unsigned char median = find_median(data, length);
   unsigned char mean = find_mean(data, length);
   unsigned char maximum = find_maximum(data, length);
   unsigned char minimum = find_minimum(data, length);
+  
   printf("Median: %i\n", median);
   printf("Mean: %i\n", mean);
   printf("Maximum: %i\n", maximum);
   printf("Minimum: %i\n", minimum);
-  print_array(data, length);
 };
 
 void print_array(unsigned char data[], unsigned int length) {
