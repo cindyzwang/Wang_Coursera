@@ -60,6 +60,10 @@ void print_statistics(unsigned char data[], unsigned int length) {
   printf("Mean: %i\n", mean);
   printf("Maximum: %i\n", maximum);
   printf("Minimum: %i\n", minimum);
+  
+  printf("------------- POST ANALYSIS -------------\n");
+  printf("The sorted data set is:\n");
+  print_array(data, length);
 };
 
 void print_array(unsigned char data[], unsigned int length) {
