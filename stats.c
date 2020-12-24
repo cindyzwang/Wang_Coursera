@@ -79,7 +79,9 @@ unsigned char find_median(unsigned char sorted_data[], unsigned int length) {
   unsigned int middle_index = length / 2;
   if (length % 2) {
     // The number of elements is odd, so the median is the average of the middle 2 elements
-    return (unsigned char) (sorted_data[middle_index] + sorted_data[middle_index + 1]) / 2;
+    // Use int in case the sum of the middle 2 elements is larger than a char
+    unsigned int sum = sorted_data[middle_index] + sorted_data[middle_index + 1];
+    return (unsigned char) (sum / 2);
   }
 
   return sorted_data[middle_index];
