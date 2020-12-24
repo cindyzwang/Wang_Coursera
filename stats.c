@@ -48,7 +48,9 @@ int main() {
 void print_statistics(unsigned char data[], unsigned int length) {
   sort_array(data, length);
   unsigned char median = find_median(data, length);
+  unsigned char mean = find_mean(data, length);
   printf("Median: %i\n", median);
+  printf("Mean: %i\n", mean);
 };
 
 void print_array(unsigned char data[], unsigned int length) {
@@ -69,7 +71,15 @@ unsigned char find_median(unsigned char sorted_data[], unsigned int length) {
   return sorted_data[middle_index];
 };
 
-unsigned char find_mean(unsigned char data[], unsigned int length) { return 0; };
+unsigned char find_mean(unsigned char data[], unsigned int length) {
+  unsigned char sum = 0;
+  for (int i = 0; i < length; i++) {
+    sum += data[i];
+  }
+
+  return sum / length;
+};
+
 unsigned char find_maximum(unsigned char data[], unsigned int length) { return 0; };
 unsigned char find_minimum(unsigned char data[], unsigned int length) { return 0; };
 
