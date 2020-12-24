@@ -48,6 +48,7 @@ int main() {
 void print_statistics(unsigned char data[], unsigned int length) {
   printf("Running analysis on the set:\n");
   print_array(data, length);
+  printf("------------- RESULTS -------------\n");
 
   sort_array(data, length);
   unsigned char median = find_median(data, length);
