@@ -58,7 +58,7 @@ void print_array(unsigned char data[], unsigned int length);
  * @brief Evaluates the median for an array of unsigned characters
  *
  * This function takes as input a reference to an array of unsigned characters
- * and the number of elements contained in the array. 
+ * sorted in descending order and the number of elements contained in the array. 
  * This will evaluate the median, rounded down to the nearest integer.
  *
  * @param data The reference to an array of unsigned characters to analyze
@@ -66,7 +66,7 @@ void print_array(unsigned char data[], unsigned int length);
  *
  * @return The median of the parameter "data"
  */
-unsigned char find_median(unsigned char data[], unsigned int length);
+unsigned char find_median(unsigned char sorted_data[], unsigned int length);
 
 /**
  * @brief Evaluates the mean for an array of unsigned characters

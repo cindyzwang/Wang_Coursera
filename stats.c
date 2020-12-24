@@ -41,13 +41,15 @@ int main() {
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
   print_statistics(test, SIZE);
-  sort_array(test, SIZE);
-  print_array(test, SIZE);
   return 0;
 }
 
 /* Add other Implementation File Code Here */
-void print_statistics(unsigned char data[], unsigned int length) {};
+void print_statistics(unsigned char data[], unsigned int length) {
+  sort_array(data, length);
+  unsigned char median = find_median(data, length);
+  printf("Median: %i\n", median);
+};
 
 void print_array(unsigned char data[], unsigned int length) {
   for (int i = 0; i < length - 1; i++) {
@@ -56,7 +58,17 @@ void print_array(unsigned char data[], unsigned int length) {
   printf("%i\n", data[length - 1]);
 };
 
-unsigned char find_median(unsigned char data[], unsigned int length) { return 0; };
+unsigned char find_median(unsigned char sorted_data[], unsigned int length) { 
+  // assumes that the data is already sorted
+  unsigned int middle_index = length / 2;
+  if (length % 2) {
+    // the number of elements is odd, so the median is the average of the middle 2 elements
+    return (unsigned char) (sorted_data[middle_index] + sorted_data[middle_index + 1]) / 2;
+  }
+
+  return sorted_data[middle_index];
+};
+
 unsigned char find_mean(unsigned char data[], unsigned int length) { return 0; };
 unsigned char find_maximum(unsigned char data[], unsigned int length) { return 0; };
 unsigned char find_minimum(unsigned char data[], unsigned int length) { return 0; };
