@@ -26,6 +26,10 @@
 #define MAX_LENGTH (10)
 char buffer[MAX_LENGTH];
 
+#ifdef COURSE1
+  course1();
+#endif
+
 /* A pretty boring main file */
 int main(void) {
   unsigned int i;
