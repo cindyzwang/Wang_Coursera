@@ -134,4 +134,16 @@ uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
  */
 uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
 
+/**
+ * @brief Sets a specified number of bytes to 0
+ * 
+ * Given a pointer to a source location and length, set all locations of the memory to 0.
+ * 
+ * @param src Pointer to data to be set
+ * @param length Number of memory locations to set
+ * 
+ * @return a pointer to the data
+ */
+uint8_t * my_memzero(uint8_t * src, size_t length);
+
 #endif /* __MEMORY_H__ */

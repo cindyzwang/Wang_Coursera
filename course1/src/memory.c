@@ -32,6 +32,8 @@ int main() {
   my_memmove(src, dest, 5);
   my_memcopy(src, &src[4], 5);
   my_memset(src, 5, 1);
+  my_memzero(src, 2);
+  
   return 0;
 }
 
@@ -99,6 +101,16 @@ uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value) {
 
   while (src < src_start + length) {
     *src = value;
+    src++;
+  }
+
+  return src_start;
+}
+
+uint8_t * my_memzero(uint8_t * src, size_t length) {
+  uint8_t *src_start = src;
+  while (src < src_start + length) {
+    *src = 0;
     src++;
   }
 
