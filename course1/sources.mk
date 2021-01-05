@@ -10,15 +10,15 @@
 #*****************************************************************************
 
 # Add your Source files to this variable
-SOURCES = main.c \
-	memory.c
+SOURCES = ./src/main.c \
+	./src/memory.c
 
-INCLUDES = ./include/common/
+INCLUDES = -I ./include/common/
 
 ifeq ($(PLATFORM), MSP432)
 	SOURCES += interrupts_msp432p401r_gcc.c \
 		startup_msp432p401r_gcc.c \
 		system_msp432p401r.c
-	INCLUDES += ./include/msp432/ \
-	  ./include/CMSIS/
+	INCLUDES += -I ./include/msp432/ \
+	  -I ./include/CMSIS/
 endif
