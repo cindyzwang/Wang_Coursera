@@ -146,4 +146,16 @@ uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
  */
 uint8_t * my_memzero(uint8_t * src, size_t length);
 
+/**
+ * @brief Reverses the order of bytes at a location
+ * 
+ * Given a pointer to a source location and length, reverse the bytes
+ * 
+ * @param src Pointer to data to be reversed
+ * @param length Number of memory locations
+ * 
+ * @return a pointer to the data
+ */
+uint8_t * my_reverse(uint8_t * src, size_t length);
+
 #endif /* __MEMORY_H__ */

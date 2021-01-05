@@ -29,11 +29,15 @@
 int main() {
   uint8_t src[] = {0, 1, 2, 3, 4};
   uint8_t dest[5];
-  my_memmove(src, dest, 5);
-  my_memcopy(src, &src[4], 5);
-  my_memset(src, 5, 1);
-  my_memzero(src, 2);
+  // my_memmove(src, dest, 5);
+  // my_memcopy(src, &src[4], 5);
+  // my_memset(src, 5, 1);
+  // my_memzero(src, 2);
+  uint8_t *ptr = my_reverse(src, 5);
   
+  for (int i = 0; i < 5; i++) {
+    printf("%hhu", *(ptr + i));
+  }
   return 0;
 }
 
@@ -115,4 +119,20 @@ uint8_t * my_memzero(uint8_t * src, size_t length) {
   }
 
   return src_start;
+}
+
+uint8_t * my_reverse(uint8_t * src, size_t length) {
+  uint8_t *src_start_start = src;
+  uint8_t *src_start = src;
+  uint8_t *src_end = src + length - 1;
+
+  while (src_start < src_end) {
+    uint8_t temp = *src_end;
+    *src_end = *src_start;
+    *src_start = temp;
+    src_start++;
+    src_end--;
+  }
+
+  return src_start_start;
 }
