@@ -38,6 +38,10 @@ int main() {
   for (int i = 0; i < 5; i++) {
     printf("%hhu", *(ptr + i));
   }
+
+  int32_t *p = reserve_words(4);
+  free_words(p);
+
   return 0;
 }
 
@@ -135,4 +139,13 @@ uint8_t * my_reverse(uint8_t * src, size_t length) {
   }
 
   return src_start_start;
+}
+
+int32_t * reserve_words(size_t length) {
+  // if malloc fails, it will return a Null pointer
+  return (int32_t*) malloc(sizeof(int32_t) * length);
+}
+
+void free_words(int32_t * src) {
+  free(src);
 }

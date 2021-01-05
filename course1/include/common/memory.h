@@ -158,4 +158,26 @@ uint8_t * my_memzero(uint8_t * src, size_t length);
  */
 uint8_t * my_reverse(uint8_t * src, size_t length);
 
+/**
+ * @brief Allocates space in dynamic memory
+ * 
+ * Given a length, reverse the bytes
+ * 
+ * @param length Number of words to allocate
+ * 
+ * @return a pointer to the data or a Null Pointer if memory allocation is unsuccessful
+ */
+int32_t * reserve_words(size_t length);
+
+/**
+ * @brief Frees space in dynamic memory
+ * 
+ * Given a pointer to a source, free the space
+ * 
+ * @param src Pointer to the space to free
+ * 
+ * @return void
+ */
+void free_words(int32_t * src);
+
 #endif /* __MEMORY_H__ */
