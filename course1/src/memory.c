@@ -21,6 +21,7 @@
  *
  */
 #include "memory.h"
+#include <stdio.h>
 
 /***********************************************************
  Function Definitions
@@ -46,5 +47,17 @@ void set_all(char * ptr, char value, unsigned int size){
 
 void clear_all(char * ptr, unsigned int size){
   set_all(ptr, 0, size);
+}
+
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length) {
+  // handle overlap by placing src data in temporary place
+  uint8_t src_copy[length];
+  for (int i = 0; i < length; i++) {
+    src_copy[i] = *(&src + i);
+    printf(src_copy);
+  }
+
+  memcpy(dst, src, length);
+  return dst;
 }
 

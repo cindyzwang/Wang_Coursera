@@ -22,6 +22,9 @@
 #ifndef __MEMORY_H__
 #define __MEMORY_H__
 
+#include <stdint.h>
+#include <stddef.h>
+
 /**
  * @brief Sets a value of a data array 
  *
@@ -89,5 +92,18 @@ void set_all(char * ptr, char value, unsigned int size);
  * @return void.
  */
 void clear_all(char * ptr, unsigned int size);
+
+/**
+ * @brief Copies data from one address to another
+ * 
+ * Given a pointer to data, copy the data to another location.
+ * 
+ * @param src Pointer to data to be copied
+ * @param dst Pointer to location for data to be copied to
+ * @param length Number of bytes of information to copy
+ * 
+ * @return a pointer to the destination of the copied data (same as "dst" param)
+ */
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
 
 #endif /* __MEMORY_H__ */
