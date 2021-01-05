@@ -23,7 +23,7 @@
 #include "platform.h"
 #include "memory.h"
 #ifdef COURSE1
-  #include "course1.h"
+#include "course1.h"
 #endif
 
 #define MAX_LENGTH (10)
@@ -32,7 +32,7 @@ char buffer[MAX_LENGTH];
 /* A pretty boring main file */
 int main(void) {
   #ifdef COURSE1
-    course1();
+  course1();
   #endif
   unsigned int i;
   char value;
