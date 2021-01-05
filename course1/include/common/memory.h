@@ -22,8 +22,7 @@
 #ifndef __MEMORY_H__
 #define __MEMORY_H__
 
-#include <stdint.h>
-#include <stddef.h>
+#include <stdlib.h>
 
 /**
  * @brief Sets a value of a data array 
@@ -94,9 +93,25 @@ void set_all(char * ptr, char value, unsigned int size);
 void clear_all(char * ptr, unsigned int size);
 
 /**
+ * @brief Moves data from one address to another
+ * 
+ * Given a pointer to data, move the data to another location. Prevents data loss due
+ * to overlapping memory by copying the data to the heap first, then moving the data
+ * from the heap to the destination.
+ * 
+ * @param src Pointer to data to be moved
+ * @param dst Pointer to location for data to be moved to
+ * @param length Number of bytes of information to move
+ * 
+ * @return a pointer to the destination of the moved data (same as "dst" param)
+ */
+uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
+
+/**
  * @brief Copies data from one address to another
  * 
- * Given a pointer to data, copy the data to another location.
+ * Given a pointer to data, copy the data to another location. Does not handle overlapping
+ * memory blocks
  * 
  * @param src Pointer to data to be copied
  * @param dst Pointer to location for data to be copied to
@@ -104,6 +119,6 @@ void clear_all(char * ptr, unsigned int size);
  * 
  * @return a pointer to the destination of the copied data (same as "dst" param)
  */
-uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
+uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
 
 #endif /* __MEMORY_H__ */

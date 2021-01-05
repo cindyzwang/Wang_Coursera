@@ -21,13 +21,16 @@
  *
  */
 #include "memory.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>  // Remove (printf)
+#include <stdlib.h>  // Remove
+
+// gcc -o main.out src/memory.c -I include/common/ -DHOST
 
 int main() {
   uint8_t src[] = {0, 1, 2, 3, 4};
   uint8_t dest[5];
   my_memmove(src, dest, 5);
+  my_memcopy(src, &src[4], 5);
   return 0;
 }
 
@@ -61,19 +64,31 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length) {
   // handle overlap by placing src data in temporary place first
   uint8_t *src_start = src;
   uint8_t *src_copy = (uint8_t*) malloc(sizeof(uint8_t) * length);
+  uint8_t *src_copy_start = src_copy;
+
   while (src < src_start + length) {
     *src_copy = *src;
     src++;
     src_copy++;
   }
-
-  uint8_t *src_copy_start = src_copy;
-  while (src_copy < src_copy_start + length) {
-    *dst = *src_copy;
-    src_copy++;
+  
+  uint8_t *src_copy_start_start = src_copy_start;
+  while (src_copy_start < src_copy_start_start + length) {
+    *dst = *src_copy_start;
+    src_copy_start++;
     dst++;
   }
 
   return dst;
 }
 
+uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length) {
+  uint8_t *src_start = src;
+  while (src < src_start + length) {
+    *dst = *src;
+    src++;
+    dst++;
+  }
+
+  return dst;
+}
