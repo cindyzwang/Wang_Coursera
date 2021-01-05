@@ -16,8 +16,8 @@
  * writing to memory via function calls. There is also a globally
  * allocated buffer array used for manipulation.
  *
- * @author Alex Fosdick
- * @date April 1 2017
+ * @author Alex Fosdick, additions by Cindy Wang
+ * @date April 1 2017, additions January 4 2021
  *
  */
 #include "memory.h"

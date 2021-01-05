@@ -15,8 +15,8 @@
  * This header file provides an abstraction of reading and
  * writing to memory via function calls. 
  *
- * @author Alex Fosdick
- * @date April 1 2017
+ * @author Alex Fosdick, additions by Cindy Wang
+ * @date April 1 2017, additions January 2 2021
  *
  */
 #ifndef __MEMORY_H__
