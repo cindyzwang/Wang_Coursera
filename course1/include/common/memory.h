@@ -103,7 +103,7 @@ void clear_all(char * ptr, unsigned int size);
  * @param dst Pointer to location for data to be moved to
  * @param length Number of bytes of information to move
  * 
- * @return a pointer to the destination of the moved data (same as "dst" param)
+ * @return a pointer to the destination of the moved data
  */
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
 
@@ -117,8 +117,21 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length);
  * @param dst Pointer to location for data to be copied to
  * @param length Number of bytes of information to copy
  * 
- * @return a pointer to the destination of the copied data (same as "dst" param)
+ * @return a pointer to the destination of the copied data
  */
 uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length);
+
+/**
+ * @brief Sets a specified number of bytes to the same specified value
+ * 
+ * Given a pointer to a source location, length, and value, set all locations of the memory to the value.
+ * 
+ * @param src Pointer to data to be set
+ * @param length Number of memory locations to set
+ * @param value Value to set the memory locations to
+ * 
+ * @return a pointer to the data
+ */
+uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value);
 
 #endif /* __MEMORY_H__ */
