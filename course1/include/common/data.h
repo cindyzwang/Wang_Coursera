@@ -15,14 +15,16 @@
 #ifndef __DATA_H__
 #define __DATA_H__
 
+#include <stdlib.h>
+
 /**
  * @brief Convert an integer to an ASCII string
  * 
  * Convert data from a standard integer type into an ASCII string
  * 
- * @param data
- * @param ptr
- * @param base
+ * @param data The data to convert
+ * @param ptr The pointer to where the converted ASCII string should be stored
+ * @param base An integer value of the radix of the converted ASCII string
  * 
  * @return The length of the converted data
  */
