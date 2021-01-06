@@ -14,28 +14,38 @@
 #include "data.h"
 #include "memory.h"
 #include <math.h>
-#include <stdio.h>  // Remove (printf)
-#include <stdlib.h>  // Remove
+// #include <stdio.h>  // Remove (printf)
+// #include <stdlib.h>  // Remove
 
-int main() {
-  int32_t data = -255;
-  uint8_t ptr[20];
-  uint8_t length = my_itoa(data, ptr, 10);
+// int main() {
+//   int32_t data = -255;
+//   uint8_t ptr[20];
+//   uint8_t length = my_itoa(data, ptr, 2);
 
-  for (int i = 0; i < length; i++) {
-    printf("%c", *(ptr + i));
-  }
+//   for (int i = 0; i < length; i++) {
+//     printf("%c", *(ptr + i));
+//   }
+//   printf("\n");
 
-  printf("\n%u\n", length);
+//   // exclude the negative sign and null terminator from the digits parameter
+//   int num_digits;
+//   if (data < 0) {
+//     num_digits = length - 2;
+//   } else {
+//     num_digits = length - 1;
+//   }
 
-  return 0;
-}
+//   int32_t num = my_atoi(ptr, num_digits, 2);
+//   printf("%i\n", num);
+
+//   return 0;
+// }
 
 uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base) {
   uint8_t * ptr_start = ptr;
   uint32_t length = 0;
 
-  unsigned char is_negative = (data < 0) ? 1 : 0;
+  unsigned char is_negative = (data < 0) ? 1 : 0;  
   uint16_t unsigned_data = abs(data);
 
   while (unsigned_data != 0) {
@@ -66,6 +76,31 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base) {
   return length;
 }
 
-int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base) {
-  return (int32_t) digits;
+int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base) {  
+  unsigned char is_negative = (*ptr == '-') ? 1 : 0;
+  if (is_negative) {
+    ptr++;
+  }
+
+  int32_t sum = 0;
+  while (*ptr != '\0') {
+    uint32_t multiplier = pow(base, digits - 1);
+    uint8_t val;
+    if (*ptr >= 'A') {
+      val = *ptr + 10 - 'A';
+    } else {
+      val = *ptr - '0';
+    }
+
+    sum += val * multiplier;
+
+    ptr++;
+    digits--;
+  }
+
+  if (is_negative) {
+    sum *= -1;
+  }
+
+  return sum;
 }

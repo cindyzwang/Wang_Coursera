@@ -22,7 +22,7 @@
  * 
  * Convert data from a standard integer type into an ASCII string
  * 
- * @param data The data to convert
+ * @param data The integer data to convert
  * @param ptr The pointer to where the converted ASCII string should be stored
  * @param base An integer value of the radix of the converted ASCII string
  * 
@@ -33,11 +33,11 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base);
 /**
  * @brief Convert an ASCII string to an integer
  * 
- * Convert data back from an ASCII represented string into an integer type.
+ * Convert data from an ASCII represented string into an integer type.
  * 
- * @param data
- * @param ptr
- * @param base
+ * @param ptr A pointer to a ASCII character string
+ * @param digits The number of digits in the character set
+ * @param base An integer value of the radix of the ASCII string
  * 
  * @return 
  */
