@@ -66,12 +66,8 @@ endif
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
 
 # Dependencies
-# Taken from GNU Manual https://www.gnu.org/software/make/manual/make.html#Pattern-Examples
 %.d: %.c
-	@set -e; rm -f $@; \
-		$(CC) -M $(CPPFLAGS) $< > $@.$$$$; \
-		sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
-		rm -f $@.$$$$
+	$(CC) -E -M $(CPPFLAGS) $< -o $@
 
 # Compile all object files but do not link
 .PHONY: compile-all
