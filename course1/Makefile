@@ -43,16 +43,15 @@ FPU = fpv4-sp-d16
 LDFLAGS = -Wl,-Map=$(TARGET).map
 CFLAGS = -g -Wall # Compiler flags
 
-
+CPPFLAGS = -g -std=c99 -Werror -O0 -D$(PLATFORM) -lm $(INCLUDES) # C-Preprocessor flags
 ifeq ($(PLATFORM), HOST)
 	CC = gcc
+	CPPFLAGS += -DVERBOSE
 else
 	CC = arm-none-eabi-gcc
 	LDFLAGS += -T$(LINKER_FILE)
 	CFLAGS += -mcpu=$(CPU) -m$(INSTRUCTIONS) --specs=$(SPECS) -march=$(ARCH) -mfloat-abi=$(FLOAT) -mfpu=$(FPU)
 endif
-CPPFLAGS = -g -std=c99 -Werror -O0 -D$(PLATFORM) -DVERBOSE -lm $(INCLUDES) # C-Preprocessor flags
-
 
 # Preprocess
 %.i: %.c
