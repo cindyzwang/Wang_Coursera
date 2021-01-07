@@ -13,6 +13,7 @@
  */
 #include "data.h"
 #include "memory.h"
+#include <stdlib.h>
 #include <math.h>
 // #include <stdio.h>  // Remove (printf)
 // #include <stdlib.h>  // Remove

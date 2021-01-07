@@ -22,7 +22,8 @@
 #ifndef __MEMORY_H__
 #define __MEMORY_H__
 
-#include <stdlib.h>
+#include <stddef.h>
+#include <inttypes.h>
 
 /**
  * @brief Sets a value of a data array 
