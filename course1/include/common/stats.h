@@ -22,12 +22,6 @@
 #ifndef __STATS_H__
 #define __STATS_H__
 
-#if defined (VERBOSE)
-#include <stdio.h>
-#define PRINTF(...) printf(__VA_ARGS__)
-#else
-#define PRINTF(...)
-#endif
 
 /* Add Your Declarations and Function Comments here */ 
 

@@ -11,24 +11,13 @@
 #ifndef __PLATFORM_H__
 #define __PLATFORM_H__
 
-/******************************************************************************
- Platform - MSP432
-******************************************************************************/
-#if defined (MSP432)
-#include "msp432p401r.h"
-#define PRINTF(...)
-/******************************************************************************
- Platform - HOST
-******************************************************************************/
-#elif defined (HOST)
+
+#if defined (VERBOSE)
 #include <stdio.h>
 #define PRINTF(...) printf(__VA_ARGS__)
-/******************************************************************************
- Platform - Unsupported
-******************************************************************************/
 #else
-#error "Platform provided is not supported in this Build System"
+#define PRINTF(...)
 #endif
 
-#endif /* __PLATFORM_H__ */
 
+#endif /* __PLATFORM_H__ */
