@@ -43,7 +43,7 @@ FPU = fpv4-sp-d16
 LDFLAGS = -Wl,-Map=$(TARGET).map
 CFLAGS = -g -Wall # Compiler flags
 
-CPPFLAGS = -g -std=c99 -Werror -O0 -D$(PLATFORM) -lm $(INCLUDES) # C-Preprocessor flags
+CPPFLAGS = -g -std=c99 -Werror -O0 -D$(PLATFORM) $(INCLUDES) # C-Preprocessor flags
 ifeq ($(PLATFORM), HOST)
 	CC = gcc
 	CPPFLAGS += -DVERBOSE
@@ -76,7 +76,7 @@ compile-all: $(SOURCES:.c=.d) $(SOURCES:.c=.o)
 # Compile all object files and link into a final executable
 .PHONY: link
 link:
-	$(CC) $(LDFLAGS) $(CFLAGS) -o $(TARGET).out $(SOURCES:.c=.o)
+	$(CC) $(LDFLAGS) $(CFLAGS) $(CPPFLAGS) -o $(TARGET).out $(SOURCES:.c=.o)
 
 .PHONY: build
 build: compile-all link $(SOURCES:.c=.o)

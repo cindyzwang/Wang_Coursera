@@ -14,7 +14,6 @@
 #include "data.h"
 #include "memory.h"
 #include <stdlib.h>
-#include <math.h>
 
 uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base) {
   uint8_t * ptr_start = ptr;
@@ -64,9 +63,13 @@ int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base) {
     ptr++;
   }
 
+  uint32_t multiplier = base;
+  for (uint8_t i = 0; i < digits - 2; i++) {
+    multiplier *= base;
+  }
+
   int32_t sum = 0;
   while (*ptr != '\0') {
-    uint32_t multiplier = pow(base, digits - 1);
     uint8_t val;
     if (*ptr >= 'A') {
       val = *ptr + 10 - 'A';
@@ -78,6 +81,7 @@ int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base) {
 
     ptr++;
     digits--;
+    multiplier /= base;
   }
 
   if (is_negative) {
