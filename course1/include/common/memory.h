@@ -23,6 +23,7 @@
 #define __MEMORY_H__
 
 #include <stddef.h>
+#include <stdlib.h>
 #include <inttypes.h>
 
 /**
