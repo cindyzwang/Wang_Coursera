@@ -23,7 +23,9 @@
 #------------------------------------------------------------------------------
 include sources.mk
 
-TARGET = c1m2
+# gcc -std=c99 -o main.out src/main.c src/data.c src/memory.c src/course1.c src/stats.c -I include/common/ -DHOST -DCOURSE1 -DVERBOSE -lm
+
+TARGET = main
 
 # Platform Overrides
 PLATFORM := $(PLATFORM)
@@ -49,7 +51,7 @@ else
 	LDFLAGS += -T$(LINKER_FILE)
 	CFLAGS += -mcpu=$(CPU) -m$(INSTRUCTIONS) --specs=$(SPECS) -march=$(ARCH) -mfloat-abi=$(FLOAT) -mfpu=$(FPU)
 endif
-CPPFLAGS = -g -std=c99 -Werror -O0 -D$(PLATFORM) $(INCLUDES) # C-Preprocessor flags
+CPPFLAGS = -g -std=c99 -Werror -O0 -D$(PLATFORM) -DVERBOSE -lm $(INCLUDES) # C-Preprocessor flags
 
 
 # Preprocess
