@@ -47,7 +47,7 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base) {
   uint32_t length = 0;
 
   unsigned char is_negative = (data < 0) ? 1 : 0;  
-  uint16_t unsigned_data = abs(data);
+  uint32_t unsigned_data = abs(data);
 
   while (unsigned_data != 0) {
     uint8_t r = unsigned_data % base;
