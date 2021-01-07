@@ -21,29 +21,6 @@
  *
  */
 #include "memory.h"
-#include <stdio.h>  // Remove (printf)
-#include <stdlib.h>  // Remove
-
-// gcc -o main.out src/memory.c -I include/common/ -DHOST
-
-// int main() {
-//   uint8_t src[] = {0, 1, 2, 3, 4};
-//   uint8_t dest[5];
-//   // my_memmove(src, dest, 5);
-//   // my_memcopy(src, &src[4], 5);
-//   // my_memset(src, 5, 1);
-//   // my_memzero(src, 2);
-//   uint8_t *ptr = my_reverse(src, 5);
-  
-//   for (int i = 0; i < 5; i++) {
-//     printf("%hhu", *(ptr + i));
-//   }
-
-//   int32_t *p = reserve_words(4);
-//   free_words(p);
-
-//   return 0;
-// }
 
 /***********************************************************
  Function Definitions

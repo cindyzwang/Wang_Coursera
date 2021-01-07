@@ -15,32 +15,6 @@
 #include "memory.h"
 #include <stdlib.h>
 #include <math.h>
-// #include <stdio.h>  // Remove (printf)
-// #include <stdlib.h>  // Remove
-
-// int main() {
-//   int32_t data = -255;
-//   uint8_t ptr[20];
-//   uint8_t length = my_itoa(data, ptr, 2);
-
-//   for (int i = 0; i < length; i++) {
-//     printf("%c", *(ptr + i));
-//   }
-//   printf("\n");
-
-//   // exclude the negative sign and null terminator from the digits parameter
-//   int num_digits;
-//   if (data < 0) {
-//     num_digits = length - 2;
-//   } else {
-//     num_digits = length - 1;
-//   }
-
-//   int32_t num = my_atoi(ptr, num_digits, 2);
-//   printf("%i\n", num);
-
-//   return 0;
-// }
 
 uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base) {
   uint8_t * ptr_start = ptr;
