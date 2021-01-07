@@ -78,6 +78,13 @@ uint8_t my_itoa(int32_t data, uint8_t * ptr, uint32_t base) {
 }
 
 int32_t my_atoi(uint8_t * ptr, uint8_t digits, uint32_t base) {  
+  // exclude the negative sign and null terminator from the digits parameter
+  if (*ptr == '-') {
+    digits -= 2;
+  } else {
+    digits -= 1;
+  }
+
   unsigned char is_negative = (*ptr == '-') ? 1 : 0;
   if (is_negative) {
     ptr++;
