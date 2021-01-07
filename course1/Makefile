@@ -23,8 +23,6 @@
 #------------------------------------------------------------------------------
 include sources.mk
 
-# gcc -std=c99 -o main.out src/main.c src/data.c src/memory.c src/course1.c src/stats.c -I include/common/ -DHOST -DCOURSE1 -DVERBOSE -lm
-
 TARGET = main
 
 # Platform Overrides
