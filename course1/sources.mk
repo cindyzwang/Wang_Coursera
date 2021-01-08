@@ -16,12 +16,12 @@ SOURCES = ./src/main.c \
 	./src/course1.c \
 	./src/stats.c
 
-INCLUDES = -I ./include/common/
+INCLUDES = -Iinclude/common/
 
 ifeq ($(PLATFORM), MSP432)
 	SOURCES += interrupts_msp432p401r_gcc.c \
 		startup_msp432p401r_gcc.c \
 		system_msp432p401r.c
-	INCLUDES += -I ./include/msp432/ \
-	  -I ./include/CMSIS/
+	INCLUDES += -Iinclude/msp432/ \
+	  -Iinclude/CMSIS/
 endif
