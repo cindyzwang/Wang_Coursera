@@ -26,7 +26,7 @@ include sources.mk
 TARGET = src/main
 
 # Platform Overrides
-PLATFORM := $(PLATFORM)
+PLATFORM ?= HOST
 
 # Architectures Specific Flags
 LINKER_FILE = msp432p401r.lds
@@ -42,13 +42,13 @@ LDFLAGS = -Wl,-Map=$(TARGET).map
 CFLAGS = -g -Wall # Compiler flags
 
 CPPFLAGS = -g -std=c99 -Werror -O0 -D$(PLATFORM) $(INCLUDES) # C-Preprocessor flags
-ifeq ($(PLATFORM), HOST)
-	CC = gcc
-	CPPFLAGS += -DCOURSE1 -DVERBOSE
-else
+ifeq ($(PLATFORM), MSP432)
 	CC = arm-none-eabi-gcc
 	LDFLAGS += -T$(LINKER_FILE)
 	CFLAGS += -mcpu=$(CPU) -m$(INSTRUCTIONS) --specs=$(SPECS) -march=$(ARCH) -mfloat-abi=$(FLOAT) -mfpu=$(FPU)
+else
+	CC = gcc
+	CPPFLAGS += -DCOURSE1 -DVERBOSE
 endif
 
 # Preprocess
