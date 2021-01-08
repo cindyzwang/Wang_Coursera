@@ -23,7 +23,7 @@
 #------------------------------------------------------------------------------
 include sources.mk
 
-TARGET = main
+TARGET = src/main
 
 # Platform Overrides
 PLATFORM := $(PLATFORM)
@@ -44,7 +44,7 @@ CFLAGS = -g -Wall # Compiler flags
 CPPFLAGS = -g -std=c99 -Werror -O0 -D$(PLATFORM) $(INCLUDES) # C-Preprocessor flags
 ifeq ($(PLATFORM), HOST)
 	CC = gcc
-	CPPFLAGS += -DVERBOSE
+	CPPFLAGS += -DCOURSE1 -DVERBOSE
 else
 	CC = arm-none-eabi-gcc
 	LDFLAGS += -T$(LINKER_FILE)
