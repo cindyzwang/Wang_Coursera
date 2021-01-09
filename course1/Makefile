@@ -51,6 +51,10 @@ else
 	CPPFLAGS += -DCOURSE1 -DVERBOSE
 endif
 
+.PHONY: build
+build: compile-all link $(SOURCES:.c=.o)
+	size $(TARGET).out
+
 # Preprocess
 %.i: %.c
 	$(CC) $(CPPFLAGS) -E -o $@ $<
@@ -75,10 +79,6 @@ compile-all: $(SOURCES:.c=.d) $(SOURCES:.c=.o)
 .PHONY: link
 link:
 	$(CC) $(LDFLAGS) $(CFLAGS) $(CPPFLAGS) $(SOURCES:.c=.o) -o $(TARGET).out
-
-.PHONY: build
-build: compile-all link $(SOURCES:.c=.o)
-	size $(TARGET).out
 
 .PHONY: clean
 clean:
