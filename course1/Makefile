@@ -60,7 +60,7 @@ endif
 	$(CC) $(CFLAGS) -S -o $@ $<
 
 # Assemble
-%.o: %.c %.h
+%.o: %.c
 	$(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
 
 # Dependencies
