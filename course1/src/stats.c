@@ -26,32 +26,10 @@
 
 #include <stdio.h>
 #include "stats.h"
+#include "platform.h"
 
 /* Size of the Data Set */
 #define SIZE (40)
-
-int main() {
-
-  unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
-                              114, 88,   45,  76, 123,  87,  25,  23,
-                              200, 122, 150, 90,   92,  87, 177, 244,
-                              201,   6,  12,  60,   8,   2,   5,  67,
-                                7,  87, 250, 230,  99,   3, 100,  90};
-
-  /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
-  printf("Running analysis on the set:\n");
-  print_array(test, SIZE);
-  printf("------------- RESULTS -------------\n");
-  
-  print_statistics(test, SIZE);
-  
-  printf("------------- POST ANALYSIS -------------\n");
-  printf("The sorted data set is:\n");
-  print_array(test, SIZE);
-  
-  return 0;
-}
 
 /* Add other Implementation File Code Here */
 void print_statistics(unsigned char data[], unsigned int length) {
@@ -61,17 +39,17 @@ void print_statistics(unsigned char data[], unsigned int length) {
   unsigned char maximum = find_maximum(data, length);
   unsigned char minimum = find_minimum(data, length);
   
-  printf("Median: %i\n", median);
-  printf("Mean: %i\n", mean);
-  printf("Maximum: %i\n", maximum);
-  printf("Minimum: %i\n", minimum);
+  PRINTF("Median: %i\n", median);
+  PRINTF("Mean: %i\n", mean);
+  PRINTF("Maximum: %i\n", maximum);
+  PRINTF("Minimum: %i\n", minimum);
 };
 
 void print_array(unsigned char data[], unsigned int length) {
   for (int i = 0; i < length - 1; i++) {
-    printf("%i, ", data[i]);
+    PRINTF("%i, ", data[i]);
   }
-  printf("%i\n", data[length - 1]);
+  PRINTF("%i\n", data[length - 1]);
 };
 
 unsigned char find_median(unsigned char sorted_data[], unsigned int length) { 
